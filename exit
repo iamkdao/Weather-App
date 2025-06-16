@@ -1,0 +1,23 @@
+[33mcommit 45005d27d3fe85ef2a8892aef248ccb5cece1154[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mtuto[m[33m, [m[1;31morigin/tuto[m[33m, [m[1;31morigin/main[m[33m, [m[1;32mmain[m[33m)[m
+Author: iamkdao <daominhkhoi64@gmail.com>
+Date:   Mon Jun 16 08:38:28 2025 +0700
+
+    finished tutorial
+
+[33mcommit 0ccb631f70323c2ca006df80d0f9bc92eacd9548[m
+Author: iamkdao <daominhkhoi64@gmail.com>
+Date:   Fri Jun 13 15:03:03 2025 +0700
+
+    initialized frontend
+
+[33mcommit dba4a71821fdbd9e53e081086a32635a8e537d66[m
+Author: iamkdao <daominhkhoi64@gmail.com>
+Date:   Fri Jun 13 14:58:06 2025 +0700
+
+    Backend done
+
+[33mcommit 6d165015e9f045d67c053ec2b0e043ebe2538a5b[m
+Author: iamkdao <daominhkhoi64@gmail.com>
+Date:   Fri Jun 13 14:33:22 2025 +0700
+
+    initial commit
