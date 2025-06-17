@@ -1,18 +1,24 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchWeather } from '../redux/weatherSlice';
+// import React, { useEffect } from 'react';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { fetchWeather } from '../redux/weatherSlice';
+import { mapStateToProps, mapDispatchToProps } from '../redux/weatherConnectors';
+import { connect } from 'react-redux';
 
-function WeatherWidget({ city = 'London' }) {
-    const dispatch = useDispatch();
-    const { data, loading, error } = useSelector((state) => state.weather);
+function WeatherWidget({ data, loading, error }) {
+    // const dispatch = useDispatch();
+    // const { data, loading, error } = useSelector((state) => state.weather);
 
-    useEffect(() => {
-        dispatch(fetchWeather(city));
-    }, [dispatch, city]);
+    // useEffect(() => {
+    //     dispatch(fetchWeather(city));
+    // }, [dispatch, city]);
+
+    // if (loading) return <div>Loading weather...</div>;
+    // if (error) return <div>Error: {error}</div>;
+    // if (!data) return null;
 
     if (loading) return <div>Loading weather...</div>;
     if (error) return <div>Error: {error}</div>;
-    if (!data) return null;
+    if (!data) return <div>No data provided</div>;
 
     return (
         <div className="weather-widget">
@@ -24,4 +30,4 @@ function WeatherWidget({ city = 'London' }) {
     );
 }
 
-export default WeatherWidget;
+export default connect(mapStateToProps, mapDispatchToProps)(WeatherWidget);

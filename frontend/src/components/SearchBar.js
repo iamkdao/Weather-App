@@ -1,19 +1,18 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { fetchWeather } from '../redux/weatherSlice';
+// import { useDispatch } from 'react-redux';
+// import { fetchWeather } from '../redux/weatherSlice';
+import { connect } from 'react-redux';
+import { mapStateToProps, mapDispatchToProps } from '../redux/weatherConnectors';
 
-export function SearchBar() {
-    const [city, setCity] = useState('');
-    const dispatch = useDispatch();
-
+export function SearchBar({ city, fetchWeather, setCity }) {
     const handleSearch = (e) => {
         e.preventDefault();
         if (city.trim() !== '') {
-            dispatch(fetchWeather(city));
+            fetchWeather(city);
         }
     }
     return (
-        <form class="d-flex my-2 my-lg-0" onSubmit={handleSearch}>
+        <form className="d-flex my-2 my-lg-0" onSubmit={handleSearch}>
             <input
                 className="form-control mr-sm-2"
                 type="search"
@@ -22,9 +21,9 @@ export function SearchBar() {
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
             />
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
     );
 }
 
-export default SearchBar
+export default connect(mapStateToProps, mapDispatchToProps)(SearchBar)
