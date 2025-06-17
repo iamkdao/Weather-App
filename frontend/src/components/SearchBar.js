@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 // import { useDispatch } from 'react-redux';
 // import { fetchWeather } from '../redux/weatherSlice';
 import { connect } from 'react-redux';
-import { mapStateToProps, mapDispatchToProps } from '../redux/weatherConnectors';
+import { mapStateToProps, mapDispatchToProps } from './connectors/weatherConnectors';
 
 export function SearchBar({ city, fetchWeather, setCity }) {
     const handleSearch = (e) => {

@@ -1,4 +1,4 @@
-import { fetchWeather, setCity } from "./weatherSlice";
+import { fetchWeather, setCity } from "../../redux/weatherSlice";
 
 export const mapStateToProps = (state) => ({
     data: state.weather.data,

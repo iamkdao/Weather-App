@@ -1,7 +1,7 @@
 // import React, { useEffect } from 'react';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { fetchWeather } from '../redux/weatherSlice';
-import { mapStateToProps, mapDispatchToProps } from '../redux/weatherConnectors';
+import { mapStateToProps, mapDispatchToProps } from './connectors/weatherConnectors';
 import { connect } from 'react-redux';
 
 function WeatherWidget({ data, loading, error }) {
