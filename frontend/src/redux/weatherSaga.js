@@ -4,9 +4,7 @@ import { getWeatherByCity } from '../services/WeatherAPI';
 
 function* handleFetchWeather(action) {
     try {
-        // const res = yield call(fetch, `/api/weather?city=${action.payload}`)
-        // const data = yield res.json();
-        const data = yield call(getWeatherByCity, action.payload)
+        const data = yield call(getWeatherByCity)
         yield put(fetchWeatherSuccess(data));
     } catch (error) {
         yield put(fetchWeatherFailure(error.message));

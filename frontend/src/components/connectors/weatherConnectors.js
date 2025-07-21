@@ -8,6 +8,6 @@ export const mapStateToProps = (state) => ({
 });
 
 export const mapDispatchToProps = (dispatch) => ({
-    fetchWeather: (city) => dispatch(fetchWeather(city)),
+    fetchWeather: () => dispatch(fetchWeather()),
     setCity: (city) => dispatch(setCity(city))
 })

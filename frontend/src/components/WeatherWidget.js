@@ -4,18 +4,7 @@
 import { mapStateToProps, mapDispatchToProps } from './connectors/weatherConnectors';
 import { connect } from 'react-redux';
 
-function WeatherWidget({ data, loading, error }) {
-    // const dispatch = useDispatch();
-    // const { data, loading, error } = useSelector((state) => state.weather);
-
-    // useEffect(() => {
-    //     dispatch(fetchWeather(city));
-    // }, [dispatch, city]);
-
-    // if (loading) return <div>Loading weather...</div>;
-    // if (error) return <div>Error: {error}</div>;
-    // if (!data) return null;
-
+function WeatherWidget({ data, loading, error, fetchWeather }) {
     if (loading) return <div>Loading weather...</div>;
     if (error) return <div>Error: {error}</div>;
     if (!data) return <div>No data provided</div>;
