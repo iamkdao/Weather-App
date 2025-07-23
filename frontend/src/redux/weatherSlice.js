@@ -6,7 +6,8 @@ const weatherSlice = createSlice({
         data: null,
         loading: false,
         error: null,
-        city: null
+        city: null,
+        distance: null,
     },
     reducers: {
         fetchWeather: (state, action) => {
@@ -22,9 +23,13 @@ const weatherSlice = createSlice({
         },
         setCity: (state, action) => {
             state.city = action.payload;
-        }
+        },
+        setDistanceSuccess: (state, action) => {
+            state.distance = action.payload;
+        },
+        triggerSetDistance: (state, action) => { },
     },
 });
 
-export const { fetchWeather, fetchWeatherSuccess, fetchWeatherFailure, setCity } = weatherSlice.actions;
+export const { fetchWeather, fetchWeatherSuccess, fetchWeatherFailure, setCity, setDistanceSuccess, triggerSetDistance } = weatherSlice.actions;
 export default weatherSlice.reducer;

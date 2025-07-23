@@ -5,10 +5,11 @@ import { connect } from 'react-redux';
 import { mapStateToProps, mapDispatchToProps } from './connectors/weatherConnectors';
 
 export function SearchBar({ city, fetchWeather, setCity }) {
+    const [inputValue, setInputValue] = useState('');
     const handleSearch = (e) => {
         e.preventDefault();
-        if (city.trim() !== '') {
-            fetchWeather();
+        if (inputValue.trim() !== '') {
+            setCity(inputValue)
         }
     }
 
@@ -16,14 +17,14 @@ export function SearchBar({ city, fetchWeather, setCity }) {
         fetchWeather();
     }, [fetchWeather])
     return (
-        <form className="d-flex my-2 my-lg-0" >
+        <form className="d-flex my-2 my-lg-0" onSubmit={handleSearch} >
             <input
                 className="form-control mr-sm-2"
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
-            // value={city}
-            // onChange={(e) => setCity(e.target.value)}
+                value={inputValue}
+                onChange={(e) => setInputValue(e.target.value)}
             />
             <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
