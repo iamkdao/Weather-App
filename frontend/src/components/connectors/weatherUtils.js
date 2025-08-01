@@ -31,3 +31,14 @@ export const calculateScore = (distance) => {
     const score = maxScore * Math.exp(-5 * (distance / maxDistance));
     return Math.round(score);
 };
+
+export const storeHighScore = (score) => {
+    const highScore = sessionStorage.getItem('highScore') | 0;
+    if (score > highScore) {
+        sessionStorage.setItem('highScore', score);
+    }
+}
+
+export const getHighScore = () => {
+    return parseInt(sessionStorage.getItem('highScore')) || 0;
+}

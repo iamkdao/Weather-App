@@ -7,7 +7,8 @@ export const mapStateToProps = (state) => ({
     error: state.weather.error,
     city: state.weather.city,
     distance: state.weather.distance,
-    score: state.weather.score
+    score: state.weather.score,
+    highScore: state.weather.highScore
 });
 
 export const mapDispatchToProps = (dispatch) => ({
