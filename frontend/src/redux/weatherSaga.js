@@ -1,7 +1,7 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
-import { fetchWeather, fetchWeatherSuccess, fetchWeatherFailure, triggerSetDistance } from './weatherSlice';
+import { fetchWeather, fetchWeatherSuccess, fetchWeatherFailure, triggerSetDistance, setDistanceSuccess, setScore } from './weatherSlice';
 import { getWeatherByCity } from '../services/WeatherAPI';
-import { calculateDistance } from '../components/connectors/weatherUtils';
+import { calculateDistance, calculateScore } from '../components/connectors/weatherUtils';
 
 function* handleFetchWeather(action) {
     try {
@@ -18,7 +18,10 @@ function* handleSetDistance(action) {
         const distance = yield call(calculateDistance, city1, city2);
         // You can create a success action if needed
         console.log('Distance calculated:', distance);
+        const score = yield call(calculateScore, distance)
         // Dispatch a success action if you want to store it
+        yield put(setDistanceSuccess(distance))
+        yield put(setScore(score))
     } catch (error) {
         yield put(fetchWeatherFailure(error.message));
     }

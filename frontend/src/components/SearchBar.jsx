@@ -11,11 +11,14 @@ export function SearchBar({ city, fetchWeather, setCity }) {
         if (inputValue.trim() !== '') {
             setCity(inputValue)
         }
+        console.log(inputValue)
+        console.log(city)
     }
 
-    useEffect(() => {
-        fetchWeather();
-    }, [fetchWeather])
+    // useEffect(() => {
+    //     fetchWeather();
+    // }, [fetchWeather])
+
     return (
         <form className="d-flex my-2 my-lg-0" onSubmit={handleSearch} >
             <input
@@ -26,7 +29,10 @@ export function SearchBar({ city, fetchWeather, setCity }) {
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
             />
-            <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <button
+                className="btn btn-outline-success my-2 my-sm-0"
+                type="submit"
+            >Search</button>
         </form>
     );
 }

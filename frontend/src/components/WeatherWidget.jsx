@@ -3,35 +3,54 @@ import React, { useEffect } from 'react';
 // import { fetchWeather } from '../redux/weatherSlice';
 import { mapStateToProps, mapDispatchToProps } from './connectors/weatherConnectors';
 import { connect } from 'react-redux';
+import IconButton from '@mui/material/IconButton';
+import ReplayIcon from '@mui/icons-material/Replay';
+import Button from '@mui/material/Button';
 
-function WeatherWidget({ data, loading, error, city, distance, setDistance }) {
+function WeatherWidget({ data, loading, error, city, setCity, distance, setDistance, score, fetchWeather, setScore }) {
     useEffect(() => {
         if (data && city) {
             setDistance({ city1: data.name, city2: city })
         }
     }, [data, city, setDistance])
 
-    if (loading) return <div>Loading weather...</div>;
-    if (error) return <div>Error: {error}</div>;
-    if (!data) return <div>No data provided</div>;
+    const handleFetch = (e) => {
+        e.preventDefault();
+        setCity('');
+        setScore(null);
+        fetchWeather();
+    }
+
+    // if (loading) return <div>Loading weather...</div>;
+    // if (error) return <div>Error: {error}</div>;
+    // // if (!data) return <div>No data provided</div>;
 
 
-    console.log(data.name)
+    console.log(data?.name)
     console.log(city)
-
-
-
+    console.log(distance)
+    console.log(score)
 
     return (
         <div className="weather-widget">
             <h3>Guess the weather</h3>
-            <p>🌡 {data.main.temp}°C</p>
-            <p>💨 {data.wind.speed} m/s</p>
-            <p>🌤 {data.weather[0].description}</p>
-            {distance && (
-                <p>Score: {distance} km</p>
+            {data && (
+                <>
+                    <p>🌡 {data?.main.temp}°C</p>
+                    <p>💨 {data?.wind.speed} m/s</p>
+                    <p>🌤 {data?.weather[0].description}</p>
+                </>
             )}
-        </div>
+
+            {
+                score && (
+                    <p>Score: {score}</p>
+                )
+            }
+            <Button variant="contained" onClick={handleFetch}>
+                <ReplayIcon />
+            </Button>
+        </div >
     );
 }
 

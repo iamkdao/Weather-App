@@ -21,3 +21,13 @@ export const calculateDistance = async (city1, city2) => {
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
     return R * c; // Distance in km
 };
+
+export const calculateScore = (distance) => {
+    const maxDistance = 14000; // km
+    const maxScore = 1000;
+
+    if (distance >= maxDistance) return 1;
+
+    const score = maxScore * Math.exp(-5 * (distance / maxDistance));
+    return Math.round(score);
+};
