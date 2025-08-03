@@ -2,4 +2,4 @@ venv
 .env
 __pycache__/
 migrations/
-frontend/apiConfigs.ts
+frontend/src/apiConfigs.ts
