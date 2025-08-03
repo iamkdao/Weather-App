@@ -92,6 +92,7 @@ function WeatherWidget({ data, loading, error, city, setCity, distance, setDista
 
     console.log(data?.name)
 
+
     return (
         <Box className="fade-in" sx={{ maxWidth: 900, mx: 'auto', mt: 4, p: 2 }}>
             <Card sx={{
